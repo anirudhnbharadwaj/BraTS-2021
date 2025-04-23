@@ -14,10 +14,10 @@
 #SBATCH --mail-user=an517162@ucf.edu
 
 echo "Job started at $(date)" >> slurm_logs/slurm_${SLURM_JOB_ID}.out
-cd /lustre/fs1/home/cap5516.student5/CAP5516-MIC/BraTS/
+cd /lustre/fs1/home/cap5516.student5/BraTS/
 echo "Current directory: $(pwd)" >> slurm_logs/slurm_${SLURM_JOB_ID}.out
 
-if [ -d "/lustre/fs1/home/cap5516.student5/CAP5516-MIC/BraTS/" ]; then
+if [ -d "/lustre/fs1/home/cap5516.student5/BraTS/" ]; then
     echo "Directory exists and is accessible" >> slurm_logs/slurm_${SLURM_JOB_ID}.out
 else
     echo "Directory not found or inaccessible" >> slurm_logs/slurm_${SLURM_JOB_ID}.err
@@ -31,7 +31,7 @@ module list >> slurm_logs/slurm_${SLURM_JOB_ID}.out 2>> slurm_logs/slurm_${SLURM
 source brain_seg_env/bin/activate
 echo "Virtual environment activated" >> slurm_logs/slurm_${SLURM_JOB_ID}.out
 
-export WANDB_API_KEY="9524dd5ae08e91b83c094966b84fc1db7c6ce03c"
+export WANDB_API_KEY=""
 export OPENBLAS_NUM_THREADS=64
 
 mkdir -p slurm_logs
